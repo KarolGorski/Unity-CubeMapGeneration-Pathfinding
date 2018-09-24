@@ -4,37 +4,42 @@ using UnityEngine;
 
 public class MapGraph{
 
-    public List<MapNode> listOfMapNodes;
-    public bool[][] tableOfNodesEdges;
+    private Dictionary<MapNode, MapNode[]> edges;
+    private Dictionary<MapNode, MapNode> cameFrom;
 
-    
-
-    public MapGraph(int mapSize)
+    public MapGraph(Dictionary<Vector2, MapNode> nodes)
     {
-        if(listOfMapNodes==null)
-            listOfMapNodes = new List<MapNode>();
-        tableOfNodesEdges = new bool[mapSize][];
-
-       // mapNodesDictionary = new Dictionary<Vector2, MapNode>();
+        edges = new Dictionary<MapNode, MapNode[]>();
+        cameFrom = new Dictionary<MapNode, MapNode>();
+        ConstructGraph(nodes);
     }
 
-    public void ConstructGraph(int mapSize, int obstaclesQuantity)
+    public MapNode[] Neighbours(MapNode node)
     {
-        listOfMapNodes = new List<MapNode>();
-
+        return edges[node];
     }
 
-    public void DeconstructGraph()
+    public MapNode CameFrom(MapNode node)
     {
-        
-        listOfMapNodes.Clear();
-        tableOfNodesEdges = null;
-
+        return cameFrom[node];
     }
 
-    public void AddNode(MapNode node)
+    public void AddEdges(MapNode node, MapNode[] neighbours)
     {
-        listOfMapNodes.Add(node);
-       // mapNodesDictionary.Add(node.transform.position, node);
+        edges.Add(node, neighbours);
+    }
+
+    public void AddPreviousNode(MapNode currentNode, MapNode nodeBefore)
+    {
+        cameFrom.Add(currentNode, nodeBefore);
+    }
+    /// <summary>
+    /// TO DO:
+    ///     WRITE CONSTRUCTING GRAPH, Algorithm Selection and rendering
+    /// </summary>
+    /// <param name="nodes"></param>
+    public void ConstructGraph(Dictionary<Vector2, MapNode> nodes)
+    {
+
     }
 }

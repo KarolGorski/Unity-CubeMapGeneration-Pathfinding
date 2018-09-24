@@ -645,10 +645,6 @@ MonoBehaviour:
   - {fileID: 1955861014562076, guid: e7ecc5fd63cf01743b05c9e1c2b5f4af, type: 2}
   - {fileID: 1057926337863124, guid: 3122ab2605e22ae47a8a90a0d696d11b, type: 2}
   - {fileID: 1241358126879742, guid: 9ee550b31c37e0a40bce57b2c93370cc, type: 2}
-  - {fileID: 1949309179599528, guid: 3a8c9d911d2fcae499faa5a89ed38df3, type: 2}
-  - {fileID: 1377816508585298, guid: ed32e9ed0e763ed49a46c34baae3c266, type: 2}
-  - {fileID: 1795774994243158, guid: bdadc74b3ec1e424a9ad84915801b174, type: 2}
-  - {fileID: 1241358126879742, guid: 1623a1d0d8d31da408df34d0f2668586, type: 2}
   dynamicParent: {fileID: 655593719}
   pathMaterial: {fileID: 2100000, guid: b37ee52214310744daa3f100e0e553f3, type: 2}
   visitedMaterial: {fileID: 2100000, guid: fd444ecaed8ad294e946b1bb7551c2c7, type: 2}

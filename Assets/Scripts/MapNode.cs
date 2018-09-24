@@ -2,22 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapNode: MonoBehaviour{
+public class MapNode{
 
-    public bool visited;
-    public bool rendered;
-    public bool path;
-    public MeshRenderer meshRenderer;
-    public Vector3 nodePosition;
-    public string typeOfNode;
+    private Vector2 nodePosition;
+    private string typeOfNode;
 
-    private void OnEnable()
+    public MapNode(Vector2 nodePosition, string typeOfNode)
     {
-        visited = false;
-        rendered = false;
-        nodePosition = this.gameObject.transform.position;
-        typeOfNode = Keys.NodeTypes.MAP;
-        meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
+        this.nodePosition = nodePosition;
+        this.typeOfNode = typeOfNode;
     }
 
+    public void ChangeType(string type)
+    {
+        typeOfNode = type;
+    }
+
+    public string GetNodeType()
+    {
+        return typeOfNode;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return nodePosition;
+    }
 }

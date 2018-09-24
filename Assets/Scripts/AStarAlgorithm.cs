@@ -20,4 +20,9 @@ public class AStarAlgorithm : IPathAlgorithmBase {
         return new List<Vector2>();
     }
 
+    public bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode)
+    {
+        return true;
+    }
+
 }

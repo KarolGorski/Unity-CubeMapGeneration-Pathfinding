@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IPathAlgorithmBase{
 
-    List<Vector2> FindShortestWay(Dictionary<Vector2, MapNode> MapNodes, MapNode startNode, MapNode finishNode);
-	
+    bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode);
+
+
 }

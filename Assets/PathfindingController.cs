@@ -7,9 +7,10 @@ public class PathfindingController : MonoBehaviour {
     private IPathAlgorithmBase pathfindingAlgorithm;
     [SerializeField]
     MapInfo mapInfo;
-    public List<Vector2> DoPathfinding()
+    public void DoPathfinding()
     {
-        return pathfindingAlgorithm.FindShortestWay(mapInfo.renderedMapDictionary, mapInfo.startNode, mapInfo.finishNode);
+        mapInfo.mapGraph = new MapGraph(mapInfo.generatedMapDictionary);
+        pathfindingAlgorithm.Search(mapInfo.mapGraph, mapInfo.startNode, mapInfo.finishNode);
     }
 
     public void SetPathfindingAlgorithm(string algorithm)

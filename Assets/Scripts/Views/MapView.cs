@@ -9,7 +9,9 @@ public class MapView : BaseView{
 
     public override void ShowView()
     {
+        Debug.Log("SHOW VIEW - MAP1!");
         base.ShowView();
+        Debug.Log("SHOW VIEW - MAP2!");
         generationController.Generate();
     }
 

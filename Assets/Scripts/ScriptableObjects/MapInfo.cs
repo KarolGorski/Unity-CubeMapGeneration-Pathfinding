@@ -7,7 +7,7 @@ public class MapInfo : ScriptableObject {
 
     public int mapSize;
     public int obstacleQuantity;
-    public Dictionary<Vector2, string> generatedMapDictionary;
-    public Dictionary<Vector2, MapNode> renderedMapDictionary;
+    public Dictionary<Vector2, MapNode> generatedMapDictionary;
     public MapNode startNode, finishNode;
+    public MapGraph mapGraph;
 }

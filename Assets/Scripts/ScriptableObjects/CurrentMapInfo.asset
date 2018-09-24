@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: CurrentMapInfo
   m_EditorClassIdentifier: 
   mapSize: 15
-  obstacleQuantity: 0
+  obstacleQuantity: 4

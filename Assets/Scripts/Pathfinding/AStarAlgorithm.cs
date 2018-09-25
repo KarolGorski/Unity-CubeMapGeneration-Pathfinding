@@ -25,4 +25,13 @@ public class AStarAlgorithm : IPathAlgorithmBase {
         return true;
     }
 
+    public bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode, float timeOffset, RenderController renderController)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode, PathfindingInfo pathfindingInfo)
+    {
+        throw new System.NotImplementedException();
+    }
 }

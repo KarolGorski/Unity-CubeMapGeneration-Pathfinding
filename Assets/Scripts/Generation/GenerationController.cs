@@ -89,12 +89,6 @@ public class GenerationController : MonoBehaviour {
         return mapKeyList[Random.Range(0, mapKeyList.Count)];
     }
 
-    private string ReturnRandomObstacleFromObstacleList()
-    {
-        //return Keys.NodeTypes.OBSTACLE_TYPE_LIST[Random.Range(0, Keys.NodeTypes.OBSTACLE_TYPE_LIST.Count)];
-        return Keys.NodeTypes.OBSTACLE;
-    }
-
     private bool TryToPlaceObstacle(Vector2 place)
     {
         if (!mapInfo.generatedMapDictionary[place].GetNodeType().Equals(Keys.NodeTypes.MAP))

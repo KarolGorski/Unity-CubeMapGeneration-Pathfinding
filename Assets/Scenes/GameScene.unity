@@ -640,14 +640,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapInfo: {fileID: 11400000, guid: 354957c5e37ed5f4dbe0c6b1c1f35c53, type: 2}
+  pathfindingInfo: {fileID: 11400000, guid: 5c3827119789cb143aa5d5ddb302ff04, type: 2}
   mapPartsPrefabsList:
   - {fileID: 1234328524064032, guid: 22ccc60ba809d074891af5f4938aadee, type: 2}
   - {fileID: 1955861014562076, guid: e7ecc5fd63cf01743b05c9e1c2b5f4af, type: 2}
   - {fileID: 1057926337863124, guid: 3122ab2605e22ae47a8a90a0d696d11b, type: 2}
   - {fileID: 1241358126879742, guid: 9ee550b31c37e0a40bce57b2c93370cc, type: 2}
+  mapPartsMaterialsList:
+  - {fileID: 2100000, guid: c2ba61dd4fa5e6b43ba1eb982517bed1, type: 2}
+  - {fileID: 2100000, guid: b37ee52214310744daa3f100e0e553f3, type: 2}
+  - {fileID: 2100000, guid: fd444ecaed8ad294e946b1bb7551c2c7, type: 2}
+  - {fileID: 2100000, guid: 6268a30dca1a22549a2cf8ab4840aed0, type: 2}
   dynamicParent: {fileID: 655593719}
-  pathMaterial: {fileID: 2100000, guid: b37ee52214310744daa3f100e0e553f3, type: 2}
-  visitedMaterial: {fileID: 2100000, guid: fd444ecaed8ad294e946b1bb7551c2c7, type: 2}
+  visitedRenderTimeOffset: 0
+  pathRenderTimeOffset: 0
 --- !u!4 &260962270
 Transform:
   m_ObjectHideFlags: 0
@@ -739,7 +745,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1800039610}
         m_MethodName: SetPathfindingAlgorithm
-        m_Mode: 5
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1800039610}
+        m_MethodName: DoPathfinding
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1013,9 +1030,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: A* algorithm
+    - m_Text: Breadth First Search
       m_Image: {fileID: 0}
-    - m_Text: Dijkstra algorithm
+    - m_Text: A* algorithm
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3838,7 +3855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find shortest path
+  m_Text: Find path
 --- !u!222 &1551202918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4880,7 +4897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f6068f2629a2e4b8cadf3b46634537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapInfo: {fileID: 0}
+  mapInfo: {fileID: 11400000, guid: 354957c5e37ed5f4dbe0c6b1c1f35c53, type: 2}
+  pathfindingInfo: {fileID: 11400000, guid: 5c3827119789cb143aa5d5ddb302ff04, type: 2}
+  algorithmLabelFromDropdown: {fileID: 1169837568}
+  renderController: {fileID: 260962269}
 --- !u!4 &1800039611
 Transform:
   m_ObjectHideFlags: 0

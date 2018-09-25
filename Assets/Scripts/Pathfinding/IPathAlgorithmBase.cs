@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPathAlgorithmBase{
 
-    bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode);
+    bool Search(MapGraph mapGraph, MapNode startNode, MapNode finishNode, PathfindingInfo pathfindingInfo);
 
 
 }

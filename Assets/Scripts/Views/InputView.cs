@@ -26,11 +26,8 @@ public class InputView : BaseView {
     }
     public override void HideView()
     {
-        Debug.Log("HIDE VIEW -INPUT!");
         WriteInputToMap();
-        Debug.Log("HIDE VIEW -INPUT2!");
         base.HideView();
-        Debug.Log("HIDE VIEW -INPUT3!");
     }
 
     void WriteInputToMap()

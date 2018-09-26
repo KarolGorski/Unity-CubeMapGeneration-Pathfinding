@@ -10,4 +10,4 @@ Some refactoring is still strongly needed tho.
 And I think that some strong state machine as core for app is still better.
 
 Film:
-https://drive.google.com/file/d/1CFIn-yebam5gN_EMq9CnlSxIAkQqjJ71/view?usp=sharing
+https://drive.google.com/file/d/13-w9mb--mivSq81w1nigS2raZYPPnTsc/view?usp=sharing

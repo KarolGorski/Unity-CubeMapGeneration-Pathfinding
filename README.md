@@ -8,3 +8,6 @@ I tried to build this app basing on ScriptableObjects and Button's event calls t
 It works nicely so far :)
 Some refactoring is still strongly needed tho. 
 And I think that some strong state machine as core for app is still better.
+
+Film:
+https://drive.google.com/file/d/1CFIn-yebam5gN_EMq9CnlSxIAkQqjJ71/view?usp=sharing

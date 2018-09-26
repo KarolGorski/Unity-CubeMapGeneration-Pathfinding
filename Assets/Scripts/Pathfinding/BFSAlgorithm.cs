@@ -18,7 +18,7 @@ public class BFSAlgorithm : IPathAlgorithmBase{
 
             if (currentNode == finishNode)
             {
-                Debug.Log("Path found!");
+                Debug.Log("Path found!" + this.ToString());
                 return true;
             }
 

@@ -7,28 +7,30 @@ public class AStarAlgorithm : IPathAlgorithmBase {
 
     private class PriorityQueue
     {
-        Queue<KeyValuePair<MapNode, float>> queue;
+        List<KeyValuePair<MapNode, float>> queue;
 
         public PriorityQueue()
         {
-            queue = new Queue<KeyValuePair<MapNode, float>>();
+            queue = new List<KeyValuePair<MapNode, float>>();
         }
 
         public void Enqueue(MapNode node, float priority)
         {
             KeyValuePair<MapNode, float> temp = new KeyValuePair<MapNode, float>(node, priority);
-            queue.Enqueue(temp);
-            SortDescending();
+            queue.Add(temp);
+            SortAscending();
         }
 
-        private void SortDescending()
+        private void SortAscending()
         {
-            queue.OrderByDescending(x => x.Value);
+            queue=queue.OrderBy(x => x.Value).ToList();
         }
 
         public KeyValuePair<MapNode, float> Dequeue()
         {
-            return queue.Dequeue();
+            KeyValuePair<MapNode, float> temp = queue[0];
+            queue.RemoveAt(0);
+            return temp;
         }
 
         public bool IsEmpty()
@@ -36,7 +38,7 @@ public class AStarAlgorithm : IPathAlgorithmBase {
             return queue.Count == 0;
         }
 
-        public MapNode[] ReturnCurrentFrontier()
+        public MapNode[] ReturnCurrentNodesAsArray()
         {
             List<MapNode> currentFrontier=new List<MapNode>();
             foreach(KeyValuePair<MapNode, float> k in queue)
@@ -54,7 +56,17 @@ public class AStarAlgorithm : IPathAlgorithmBase {
                 if (k.Key.Equals(node))
                     return true;
             }
-            return false;
+            return false;   
+        }
+
+        public string DebugQueue()
+        {
+            string temp = "";
+            foreach(KeyValuePair<MapNode, float> k in queue)
+            {
+                temp += k.Value.ToString()+", ";
+            }
+            return temp;
         }
     }
 
@@ -80,7 +92,7 @@ public class AStarAlgorithm : IPathAlgorithmBase {
 
             if(currentNode.Equals(finishNode))
             {
-                Debug.Log("Path found!");
+                Debug.Log("Path found! "+this.ToString());
                 return true;
             }
 
@@ -100,7 +112,7 @@ public class AStarAlgorithm : IPathAlgorithmBase {
                     mapGraph.AddPreviousNode(next, currentNode);
                 }
             }
-            pathfindingInfo.FrontierByOrder.Add(frontier.ReturnCurrentFrontier());
+            pathfindingInfo.FrontierByOrder.Add(frontier.ReturnCurrentNodesAsArray());
             pathfindingInfo.iterations++;
         }
         Debug.Log("Path not found!");

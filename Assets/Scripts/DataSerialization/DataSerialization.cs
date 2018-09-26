@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 public class DataSerialization : MonoBehaviour {
 
@@ -16,6 +17,10 @@ public class DataSerialization : MonoBehaviour {
 
     private void OnEnable()
     {
+        Assert.IsNotNull(mapInfo, "There is no map info in Data Serialization");
+        Assert.IsNotNull(saveText, "There is no UI text input of saving text in Data Serialization");
+        Assert.IsNotNull(renderController, "There is no Render Controller in Data Serialization");
+
         if (!PlayerPrefs.HasKey(Keys.Data.SAVES_LIST))
             saves = new List<string>();
         else

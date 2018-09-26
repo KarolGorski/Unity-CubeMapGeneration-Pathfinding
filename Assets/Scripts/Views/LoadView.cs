@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Assertions;
 
 public class LoadView : BaseView {
 
@@ -26,18 +27,28 @@ public class LoadView : BaseView {
 
     private void OnEnable()
     {
-        if(listOfButtons==null)
+        Assert.IsNotNull(dataSerialization, "There is no Data Serialization in Load View");
+        Assert.IsNotNull(uiParentOfLoadButtons, "There is no ListContent(Parent For Load buttons) in Load View");
+        Assert.IsNotNull(loadButtonPrefab, "There is no Load Button Prefab in load view");
+
+
+        LoadListOfLoadButtons();
+        
+    }
+
+    private void LoadListOfLoadButtons()
+    {
+        if (listOfButtons == null)
             listOfButtons = new List<GameObject>();
         foreach (string loadText in dataSerialization.GetListOfSaves())
         {
-            GameObject newButton = GameObject.Instantiate(loadButtonPrefab,uiParentOfLoadButtons.transform);
+            GameObject newButton = GameObject.Instantiate(loadButtonPrefab, uiParentOfLoadButtons.transform);
             listOfButtons.Add(newButton);
             LoadButton temp = newButton.GetComponent<LoadButton>();
             temp.loadButtonText.text = loadText;
             temp.buttonComponent.onClick.AddListener(delegate { dataSerialization.LoadData(temp.loadButtonText); });
             temp.buttonComponent.onClick.AddListener(delegate { this.HideView(); });
         }
-        
     }
 
     public void DeleteAll()

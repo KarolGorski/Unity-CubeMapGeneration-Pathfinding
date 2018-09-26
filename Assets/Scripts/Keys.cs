@@ -26,4 +26,9 @@ public class Keys : MonoBehaviour {
         public static string A_STAR = "A* algorithm";
         public static string BFS = "Breadth First Search";
     }
+
+    public class Data
+    {
+        public static string SAVES_LIST = "Serialized list of every save";
+    }
 }

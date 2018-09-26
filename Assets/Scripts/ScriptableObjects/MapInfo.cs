@@ -10,4 +10,5 @@ public class MapInfo : ScriptableObject {
     public Dictionary<Vector2, MapNode> generatedMapDictionary;
     public MapNode startNode, finishNode;
     public MapGraph mapGraph;
+
 }

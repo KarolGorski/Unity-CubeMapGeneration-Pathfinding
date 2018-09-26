@@ -59,6 +59,7 @@ public class AStarAlgorithm : IPathAlgorithmBase {
             return false;   
         }
 
+
         public string DebugQueue()
         {
             string temp = "";

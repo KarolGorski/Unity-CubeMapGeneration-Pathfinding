@@ -29,6 +29,7 @@ public class PathfindingController : MonoBehaviour {
         pathfindingInfo.CleanInfo();
         mapInfo.mapGraph = new MapGraph(mapInfo.generatedMapDictionary);
         pathfindingInfo.pathFound=pathfindingAlgorithm.Search(mapInfo.mapGraph, mapInfo.startNode, mapInfo.finishNode, pathfindingInfo);
+        pathfindingInfo.pathPositions = MarkThePath();
         renderController.RenderPathfinding();
     }
 
@@ -38,5 +39,23 @@ public class PathfindingController : MonoBehaviour {
             pathfindingAlgorithm = new AStarAlgorithm();
         if (algorithmLabelFromDropdown.text.Equals(Keys.Algorithms.BFS))
             pathfindingAlgorithm = new BFSAlgorithm();
+        Debug.Log("Algorithm changed to: " + pathfindingAlgorithm.ToString());
+    }
+
+    private List<Vector2> MarkThePath()
+    {
+        List<Vector2> pathPosList = new List<Vector2>();
+        MapNode currentNode = mapInfo.finishNode;
+        while (currentNode != mapInfo.startNode)
+        {
+            if (currentNode != mapInfo.mapGraph.CameFrom(currentNode))
+            {
+                pathPosList.Add(currentNode.GetPosition());
+                currentNode = mapInfo.mapGraph.CameFrom(currentNode);
+            }
+            else break;
+
+        }
+        return pathPosList;
     }
 }

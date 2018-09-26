@@ -19,7 +19,6 @@ public class BFSAlgorithm : IPathAlgorithmBase{
             if (currentNode == finishNode)
             {
                 Debug.Log("Path found!");
-                pathfindingInfo.pathPositions= MarkThePath(mapGraph, startNode, finishNode);
                 return true;
             }
 
@@ -39,22 +38,7 @@ public class BFSAlgorithm : IPathAlgorithmBase{
         return false;
     }
 
-    private List<Vector2> MarkThePath(MapGraph mapGraph, MapNode startNode, MapNode finishNode)
-    {
-        List<Vector2> pathPosList = new List<Vector2>();
-        MapNode currentNode = finishNode;
-        while (currentNode != startNode)
-        {
-            if (currentNode != mapGraph.CameFrom(currentNode))
-            {
-                pathPosList.Add(currentNode.GetPosition());
-                currentNode = mapGraph.CameFrom(currentNode);
-            }
-            else break;
-
-        }
-        return pathPosList;
-    }
+    
 
 
 }

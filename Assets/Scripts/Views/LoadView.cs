@@ -35,7 +35,9 @@ public class LoadView : BaseView {
             LoadButton temp = newButton.GetComponent<LoadButton>();
             temp.loadButtonText.text = loadText;
             temp.buttonComponent.onClick.AddListener(delegate { dataSerialization.LoadData(temp.loadButtonText); });
+            temp.buttonComponent.onClick.AddListener(delegate { this.HideView(); });
         }
+        
     }
 
     public void DeleteAll()
